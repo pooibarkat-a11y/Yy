@@ -768,10 +768,16 @@
       </div>
 
       <div class="top-actions">
+        <!-- Direct APK Download Button -->
+        <a href="/tarteel.apk" download="tarteel_quran.apk" class="btn-action-copy" style="background: linear-gradient(135deg, #10b981, #047857); text-decoration: none; color: #fff; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);" title="تحميل ملف APK للأندرويد مباشرة">
+          <span>📱</span>
+          <span>تحميل APK</span>
+        </a>
+
         <!-- Direct HTML Copy Button -->
-        <button class="btn-action-copy" onclick="openCopyModal()" title="نسخ كود HTML بالكامل بنقرة واحدة">
+        <button class="btn-action-copy" onclick="openCopyModal()" title="نسخ كود HTML بالكامل أو تنزيله">
           <span>📋</span>
-          <span>نسخ كود HTML</span>
+          <span>كود HTML</span>
         </button>
 
         <!-- Direct Download Button -->
@@ -973,6 +979,35 @@
 
       <!-- ================= 3. DOWNLOADS CENTER SCREEN ================= -->
       <section id="screen-downloads" class="view-screen">
+
+        <!-- APK Download Card & Troubleshooting -->
+        <div class="item-box" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(15, 23, 42, 0.95)); border: 1.5px solid #10b981; margin-bottom: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+          <div class="card-row-between" style="flex-wrap: wrap; gap: 12px;">
+            <div>
+              <span class="badge-tag gold">📱 تطبيق الأندرويد الكامل • ملف APK رسمي</span>
+              <h2 style="font-size: 1.15rem; font-weight: 800; color: #fff; margin-top: 6px;">تنزيل ملف APK لتثبيت التطبيق على هاتفك</h2>
+              <p style="font-size: 0.76rem; color: #cbd5e1; margin-top: 4px;">حجم الملف: <b>64 ميجابايت</b> • معرّف نظيف (com.aistudio.tarteel.qurankx) بدون أي تعارض في البيانات</p>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <a href="/tarteel.apk" download="tarteel_quran.apk" class="btn-action-copy" style="background: linear-gradient(135deg, #10b981, #059669); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 12px; font-weight: 800; font-size: 0.88rem; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);">
+                <span>📥</span>
+                <span>تحميل ملف APK مباشر</span>
+              </a>
+              <button onclick="openApkHelpModal()" style="background: rgba(255,255,255,0.08); border: 1px solid var(--accent-gold); color: #fff; padding: 10px 14px; border-radius: 12px; font-weight: 700; font-size: 0.82rem; cursor: pointer;">
+                ❓ حل مشكلة خطأ في البيانات
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick Fix Instructions Alert -->
+          <div style="margin-top: 12px; background: rgba(0,0,0,0.35); border-radius: 10px; padding: 10px 14px; border-right: 4px solid var(--accent-gold); font-size: 0.76rem; color: #e2e8f0; line-height: 1.6;">
+            💡 <b>إذا ظهرت لك رسالة «خطأ في البيانات» أو «حدث خطأ أثناء تحليل الحزمة» عند التثبيت:</b><br>
+            • <b>1. إلغاء تثبيت أي نسخة سابقة:</b> احذف أي نسخة قديمة من التطبيق أولاً من شاشة هاتفك لتجنب تعارض الحزم.<br>
+            • <b>2. التثبيت من مدير الملفات:</b> افتح تطبيق <b>«ملفاتي / My Files»</b> أو <b>«Files by Google»</b> -> مجلد <b>«Downloads»</b> واضغط على ملف <b>tarteel_quran.apk</b> لتثبيته بنجاح.<br>
+            • <b>3. تفعيل التثبيت من مصادر غير معروفة:</b> من إعدادات الحماية عند طلب الهاتف.<br>
+            • <b>4. اكتمال التنزيل:</b> انتظر حتى يكتمل التحميل بالكامل (64MB) قبل الضغط عليه.
+          </div>
+        </div>
         
         <div class="downloads-storage-gauge">
           <div class="card-row-between">
@@ -1188,22 +1223,89 @@
     </div>
   </div>
 
-  <!-- Modal for Copying Full HTML Code -->
+  <!-- Modal for Copying Full HTML Code & Downloading Options -->
   <div id="copy-modal" class="modal-overlay" onclick="closeCopyModal(event)">
     <div class="modal-box" onclick="event.stopPropagation()">
       <div class="card-row-between">
-        <h3 style="font-size: 1.05rem; font-weight: 800; color: #fff;">📄 كود HTML الكامل للتطبيق</h3>
+        <h3 style="font-size: 1.05rem; font-weight: 800; color: #fff;">📥 خيارات تنزيل واستخدام التطبيق</h3>
         <button onclick="closeCopyModalDirect()" style="background: none; border: none; color: #94a3b8; font-size: 20px; cursor: pointer;">✕</button>
       </div>
-      <p style="font-size: 0.78rem; color: #94a3b8;">تم تجهيز الكود بالكامل، يمكنك نسخه بنقرة واحدة وتشغيله على الهاتف أو التابلت أو الكمبيوتر بدون نت:</p>
-      <textarea id="modal-code-textarea" class="modal-textarea" readonly></textarea>
-      <div style="display: flex; gap: 8px;">
-        <button onclick="copyModalText()" style="flex: 1; background: var(--primary); color: #fff; border: none; padding: 12px; border-radius: 12px; font-weight: 800; font-size: 0.88rem; cursor: pointer;">
-          📋 نسخ الكود بالكامل
-        </button>
-        <button onclick="downloadHtmlFile()" style="background: rgba(255,255,255,0.08); color: #fff; border: 1px solid var(--accent-gold); padding: 12px 16px; border-radius: 12px; font-weight: 700; font-size: 0.88rem; cursor: pointer;">
-          📥 تنزيل الملف
-        </button>
+      
+      <!-- Primary choice: Android APK -->
+      <div style="background: rgba(16, 185, 129, 0.12); border: 1.5px solid #10b981; border-radius: 14px; padding: 14px; margin: 12px 0;">
+        <div style="font-weight: 800; color: #34d399; font-size: 0.92rem; margin-bottom: 4px;">📱 تطبيق الأندرويد الأصلي (ملف APK)</div>
+        <div style="font-size: 0.76rem; color: #cbd5e1; line-height: 1.5; margin-bottom: 10px;">
+          التطبيق الأصلي مع الأذان في الخلفية، المصحف العثماني بالكامل بدون نت، والخطوط الأصلية (64 ميجابايت).
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <a href="/tarteel.apk" download="tarteel_quran.apk" style="flex: 1; background: linear-gradient(135deg, #10b981, #059669); color: #fff; text-decoration: none; text-align: center; padding: 12px; border-radius: 12px; font-weight: 800; font-size: 0.88rem; box-shadow: 0 4px 14px rgba(16,185,129,0.3);">
+            📥 تحميل ملف APK مباشر
+          </a>
+          <button onclick="openApkHelpModal()" style="background: rgba(255,255,255,0.08); border: 1px solid var(--accent-gold); color: #fff; padding: 12px; border-radius: 12px; font-weight: 700; font-size: 0.8rem; cursor: pointer;">
+            ❓ حل مشاكل التثبيت
+          </button>
+        </div>
+      </div>
+
+      <!-- Secondary choice: HTML Code for web / offline browser -->
+      <div style="margin-top: 10px;">
+        <div style="font-weight: 700; color: #e2e8f0; font-size: 0.85rem; margin-bottom: 4px;">📄 نسخة الويب (ملف HTML مدمج):</div>
+        <p style="font-size: 0.74rem; color: #94a3b8; margin-bottom: 8px;">لتشغيله على أي متصفح في الهاتف أو التابلت أو الكمبيوتر أوفلاين:</p>
+        <textarea id="modal-code-textarea" class="modal-textarea" readonly style="height: 70px;"></textarea>
+        <div style="display: flex; gap: 8px; margin-top: 8px;">
+          <button onclick="copyModalText()" style="flex: 1; background: var(--primary); color: #fff; border: none; padding: 10px; border-radius: 10px; font-weight: 800; font-size: 0.82rem; cursor: pointer;">
+            📋 نسخ كود HTML
+          </button>
+          <button onclick="downloadHtmlFile()" style="background: rgba(255,255,255,0.08); color: #fff; border: 1px solid var(--card-border); padding: 10px 14px; border-radius: 10px; font-weight: 700; font-size: 0.82rem; cursor: pointer;">
+            📥 تنزيل صفحة الويب
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for APK Troubleshooting Guide -->
+  <div id="apk-help-modal" class="modal-overlay" onclick="closeApkHelpModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()" style="max-height: 85vh; overflow-y: auto;">
+      <div class="card-row-between">
+        <h3 style="font-size: 1.05rem; font-weight: 800; color: #34d399;">🛠️ حل مشكلة «خطأ في البيانات» عند تثبيت الـ APK</h3>
+        <button onclick="closeApkHelpModalDirect()" style="background: none; border: none; color: #94a3b8; font-size: 20px; cursor: pointer;">✕</button>
+      </div>
+
+      <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 12px; font-size: 0.82rem; color: #e2e8f0; line-height: 1.6;">
+        <div style="background: rgba(255,255,255,0.04); border-radius: 12px; padding: 12px; border-right: 3px solid #10b981;">
+          <b style="color: #34d399; font-size: 0.88rem;">1. مسح أي نسخة قديمة من التطبيق (الأهم):</b>
+          <p style="margin-top: 4px; color: #cbd5e1; font-size: 0.78rem;">
+            تم تحديث معرّف الحزمة إلى <code>com.aistudio.tarteel.qurankx</code> لمنع أي تعارض. إذا كنت قد ثبت نسخة سابقة، اذهب إلى الشاشة الرئيسية لهاتفك واحذف التطبيق القديم أولاً ثم ثبت النسخة الجديدة.
+          </p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.04); border-radius: 12px; padding: 12px; border-right: 3px solid var(--accent-gold);">
+          <b style="color: var(--accent-gold); font-size: 0.88rem;">2. التثبيت عبر تطبيق «ملفاتي» أو «Files»:</b>
+          <p style="margin-top: 4px; color: #cbd5e1; font-size: 0.78rem;">
+            أحياناً إشعار التنزيل في متصفح Chrome يعطي خطأ تحليل وهمي. الحل البسيط: افتح تطبيق <b>«ملفاتي / My Files»</b> (أو Files by Google) على هاتفك، ادخل إلى مجلد <b>«التنزيلات (Downloads)»</b>، واضغط على ملف <b>tarteel_quran.apk</b> مباشرة وسيتثبت فوراً.
+          </p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.04); border-radius: 12px; padding: 12px; border-right: 3px solid #60a5fa;">
+          <b style="color: #60a5fa; font-size: 0.88rem;">3. تفعيل «تثبيت التطبيقات من مصادر غير معروفة»:</b>
+          <p style="margin-top: 4px; color: #cbd5e1; font-size: 0.78rem;">
+            عند التثبيت لأول مرة، يطلب نظام أندرويد إذناً: ادخل على <b>«الإعدادات» -> «السماح من هذا المصدر»</b> لمتصفحك أو لمدير الملفات.
+          </p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.04); border-radius: 12px; padding: 12px; border-right: 3px solid #f43f5e;">
+          <b style="color: #f43f5e; font-size: 0.88rem;">4. التأكد من اكتمال التنزيل (64 ميجابايت):</b>
+          <p style="margin-top: 4px; color: #cbd5e1; font-size: 0.78rem;">
+            لا تنقر على الملف أثناء التحميل! انتظر حتى ينتهي مؤشر التنزيل في المتصفح ويصل إلى 64MB كاملاً حتى لا تكون الحزمة ناقصة.
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top: 14px; text-align: center;">
+        <a href="/tarteel.apk" download="tarteel_quran.apk" style="display: block; background: linear-gradient(135deg, #10b981, #059669); color: #fff; text-decoration: none; padding: 12px; border-radius: 12px; font-weight: 800; font-size: 0.9rem;">
+          📥 إعادة تحميل ملف الـ APK المباشر الآن
+        </a>
       </div>
     </div>
   </div>
@@ -1745,6 +1847,19 @@
 
     function closeCopyModal(e) {
       if (e.target.id === 'copy-modal') closeCopyModalDirect();
+    }
+
+    // APK Help Modal Logic
+    function openApkHelpModal() {
+      document.getElementById('apk-help-modal').classList.add('open');
+    }
+
+    function closeApkHelpModalDirect() {
+      document.getElementById('apk-help-modal').classList.remove('open');
+    }
+
+    function closeApkHelpModal(e) {
+      if (e.target.id === 'apk-help-modal') closeApkHelpModalDirect();
     }
 
     function copyModalText() {
